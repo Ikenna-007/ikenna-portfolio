@@ -141,7 +141,7 @@ function Contact() {
   async function submit(event) {
     event.preventDefault(); setState({loading:true,kind:'',message:''})
     try {
-      const API_URL = import.meta.env.VITE_API_URL || ''
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000'
 
       const response = await fetch(`${API_URL}/api/contact`, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(form)})
       const result = await response.json()
