@@ -143,7 +143,11 @@ function Contact() {
     try {
       const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000'
 
-      const response = await fetch(`${API_URL}/api/contact`, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(form)})
+      const response = await fetch(`${API_URL}/api/contact`, {
+        method:'POST',
+        headers:{'Content-Type': 'application/json'},
+        body:JSON.stringify(form)
+      })
       const result = await response.json()
       if (!response.ok) throw new Error(result.error || 'Your message could not be sent. Please try again.')
       setState({loading:false,kind:'success',message:'Thanks — your message has been sent. I’ll be in touch.'})
